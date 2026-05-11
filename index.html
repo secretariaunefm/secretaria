@@ -12321,7 +12321,8 @@ else
       </div>
       <div class="collapsed" style="height: 42px;">
       <span id="m_2" class="stTop">Gacetas</span>
-      <a href="javascript:;" onclick="modal('files','indicegacetas','index','Índice de Gacetas')" class="stChild">Índice de Gacetas</a>
+      <!--<a href="javascript:;" onclick="modal('files','indicegacetas','index','Índice de Gacetas')" class="stChild">Índice de Gacetas</a>-->
+      <a href="javascript:;" onclick="abrirCarpeta('Índice de Gacetas', '10pcB1k5Ma9RSkYjnBjFKjb8w3Ngy5Uex')" class="stChild">Índice de Gacetas</a>
       <a href="javascript:;" onclick="modal('files','gacetas','index','Gacetas')" class="stChild">Gacetas</a>
       </div>
       <div class="collapsed" style="height: 42px;">
@@ -12630,4 +12631,34 @@ async function modal(modulo, accion, id, titulo) {
     }
 }
 </script>
+<!-- La Ventana Modal -->
+<div id="mModal" class="modal" style="display:none; position:fixed; z-index:1; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8);">
+  <div class="modal-contenido" style="background-color:#fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; height: 80%;">
+    <span onclick="cerrarModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor:pointer;">&times;</span>
+    <h2 id="tituloModal">Sección</h2>
+    <!-- El Iframe que mostrará Google Drive -->
+    <iframe id="visorDrive" src="" style="width:100%; height:90%; border:none;"></iframe>
+  </div>
+</div>
+<script>
+function abrirCarpeta(nombre, folderId) {
+    // 1. Cambiamos el título según la sección (Gaceta, Normas, etc.)
+    document.getElementById('tituloModal').innerText = nombre;
+    
+    // 2. Construimos la URL de vista previa de Google Drive
+    const urlDrive = "https://drive.google.com/embeddedhost/explore?id=" + folderId;
+    
+    // 3. Asignamos la URL al iframe
+    document.getElementById('visorDrive').src = urlDrive;
+    
+    // 4. Mostramos el modal
+    document.getElementById('mModal').style.display = "block";
+}
+
+function cerrarModal() {
+    document.getElementById('mModal').style.display = "none";
+    document.getElementById('visorDrive').src = ""; // Limpiamos para ahorrar datos
+}
+</script>
+
 </body>
