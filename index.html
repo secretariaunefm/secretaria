@@ -12610,8 +12610,8 @@ async function modal(modulo, accion, id, titulo) {
     const contenedor = document.getElementById('modalContenido');
     document.getElementById('modalTitulo').innerText = titulo;
 
-    // 1. Construir la URL dinámicamente según tus parámetros
-    const url = `http://localhost/secretariau/${modulo}/${accion}/${id}.html`;
+    // 1. Construir la URL dinámicamente según tus parámetros http://localhost/secretariau
+    const url = `./${modulo}/${accion}/${id}.html`;
 
     modalElement.showModal(); // Abrir el modal nativo
     contenedor.innerHTML = "Cargando contenido...";
