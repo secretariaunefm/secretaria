@@ -12646,7 +12646,7 @@ function abrirCarpeta(nombre, folderId) {
     document.getElementById('tituloModal').innerText = nombre;
     
     // 2. Construimos la URL de vista previa de Google Drive
-    const urlDrive = "https://drive.google.com/embeddedhost/explore?id=" + folderId;
+    const urlDrive = "https://drive.google.com/embeddedfolderview/explore?id=" + folderId;
     
     // 3. Asignamos la URL al iframe
     document.getElementById('visorDrive').src = urlDrive;
